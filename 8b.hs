@@ -1,6 +1,6 @@
 module Main where
 
-import Control.Applicative (Alternative ((<|>)), Applicative (liftA2), ZipList (ZipList, getZipList))
+import Control.Applicative (Applicative (liftA2), ZipList (ZipList, getZipList))
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 import Data.Traversable (mapAccumL, mapAccumR)
