@@ -22,15 +22,10 @@ solve instructions = sum . take 6 . map signalStrength $ (20 : [60, 100 ..])
     evalStates = evaluate instructions
 
 evaluate :: [Instruction] -> [EvalState]
-evaluate = scanl func (EvalState 1 0)
+evaluate = scanl modify (EvalState 1 0)
   where
-    func (EvalState regX cycleCount) instr = EvalState (regX + value instr) (cycleCount + cycles instr)
-
-    value Noop = 0
-    value (Addx n) = n
-
-    cycles Noop = 1
-    cycles (Addx _) = 2
+    modify (EvalState regX cycleCount) Noop = EvalState regX (cycleCount + 1)
+    modify (EvalState regX cycleCount) (Addx n) = EvalState (regX + n) (cycleCount + 2)
 
 parse :: T.Text -> [Instruction]
 parse = map (toInstruction . T.unpack) . T.lines
