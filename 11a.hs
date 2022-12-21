@@ -57,7 +57,7 @@ playTurn' monkeys monkeyNo = foldl throwItem monkeys (items $ monkeys ! monkeyNo
     Monkey {op, whereToThrow} = monkeys ! monkeyNo
 
 parse :: T.Text -> Array MonkeyIndex Monkey
-parse input = listArray (0, length monkeys - 1) $ map toMonkey monkeyInput
+parse input = listArray (0, length monkeys - 1) monkeys
   where
     monkeys = map toMonkey monkeyInput
 
