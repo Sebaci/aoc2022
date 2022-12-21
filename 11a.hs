@@ -13,7 +13,7 @@ import System.Environment (getArgs)
 data Monkey = Monkey
   { items :: [Item],
     op :: Item -> Item,
-    whereToThrow :: MonkeyIndex -> MonkeyIndex,
+    whereToThrow :: Item -> MonkeyIndex,
     inspections :: Int
   }
 
