@@ -8,7 +8,6 @@ import Data.Function (on)
 import Data.List (groupBy, last, sortBy)
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
-import Debug.Trace
 import System.Environment (getArgs)
 
 data Monkey = Monkey
