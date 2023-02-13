@@ -38,10 +38,10 @@ game :: Array MonkeyIndex Monkey -> [Array MonkeyIndex Monkey]
 game = iterate playRound
 
 playRound :: Array MonkeyIndex Monkey -> Array MonkeyIndex Monkey
-playRound monkeys = foldl playTurn' monkeys (indices monkeys)
+playRound monkeys = foldl playTurn monkeys (indices monkeys)
 
-playTurn' :: Array MonkeyIndex Monkey -> MonkeyIndex -> Array MonkeyIndex Monkey
-playTurn' monkeys monkeyNo = foldl throwItem monkeys (items $ monkeys ! monkeyNo)
+playTurn :: Array MonkeyIndex Monkey -> MonkeyIndex -> Array MonkeyIndex Monkey
+playTurn monkeys monkeyNo = foldl throwItem monkeys (items $ monkeys ! monkeyNo)
   where
     throwItem monkeys item =
       monkeys
