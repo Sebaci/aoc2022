@@ -69,5 +69,5 @@ comparePackets ps1 (Val v : ps2) = comparePackets ps1 (Arr [Val v] : ps2)
 
 parseInput :: T.Text -> [NestedArray]
 parseInput input =
-  let rawPackets = filter (\l -> T.length l > 0) $ T.lines input
+  let rawPackets = filter ((> 0) . T.length) $ T.lines input
    in map (parse . tokenize . T.unpack) rawPackets
