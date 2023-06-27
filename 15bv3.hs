@@ -75,7 +75,7 @@ sensorBound s@Sensor {x, y} =
 intersection :: Line -> Line -> Maybe Coord
 intersection line1 line2 = case (line1, line2) of
   (Increasing b1, Decreasing b2) -> aux b1 b2
-  (Decreasing b1, Increasing b2) -> aux b1 b2
+  (Decreasing b1, Increasing b2) -> aux b2 b1
   (_, _) -> Nothing
   where
     aux b1 b2
